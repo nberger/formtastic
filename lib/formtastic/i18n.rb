@@ -30,6 +30,12 @@ module Formtastic
       end
       alias :t :translate
       
+      def localize(*args)
+        value = args.shift
+        options = args.extract_options!
+        ::I18n.localize(value, *(args << options))
+      end
+      alias :l :localize
     end
     
   end
